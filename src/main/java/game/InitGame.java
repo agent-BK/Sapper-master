@@ -9,6 +9,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import static enums.Icons.ICON_LOGO;
+import static enums.Labels.*;
 import static enums.Size.SIZE_30;
 import static menu.Menu.initMenu;
 import static menu.Message.showMessage;
@@ -79,9 +80,9 @@ public class InitGame extends JFrame {
 
                     if (!game.isGameStatus()) {
                         if (game.isStopGame()) {
-                            showMessage(InitGame.this, "Вы проиграли!");
+                            showMessage(InitGame.this, LOSE.getText());
                         } else {
-                            showMessage(InitGame.this, "Вы победили!");
+                            showMessage(InitGame.this, WIN.getText());
                         }
                     }
                 }
@@ -96,7 +97,7 @@ public class InitGame extends JFrame {
     public void initFrame() {
         pack();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Сапер");
+        setTitle(TITLE.getText());
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);

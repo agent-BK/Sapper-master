@@ -45,7 +45,7 @@ public class Menu {
             obj.panelRepaint();
         });
 
-        sizeField.addActionListener(arg0 -> initSizeField(obj, "Размер поля", "Размер поля"));
+        sizeField.addActionListener(arg0 -> initSizeField(obj, FIELD_SIZE.getText(), FIELD_SIZE.getText()));
     }
 
 }

@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 import static enums.FontSize.FONT_12;
+import static enums.Labels.AUTHOR;
 import static enums.Size.*;
 import static utils.FileUtils.getImageIcon;
 
@@ -11,7 +12,6 @@ public class SplashScreen extends JWindow {
 
     private final int WIDTH = SIZE_480.getSize();
     private final int HEIGHT =SIZE_320.getSize();
-    private final String AUTHOR = "Author: Andrey Voitovich, 2021 version: 1.0";
     private final String PATH_INTRO_IMAGE = "images/intro.jpg";
     private final Dimension SCREEN = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -29,7 +29,7 @@ public class SplashScreen extends JWindow {
                 WIDTH, HEIGHT);
 
         JLabel label = new JLabel(getImageIcon(PATH_INTRO_IMAGE));
-        JLabel author = new JLabel(AUTHOR, JLabel.CENTER);
+        JLabel author = new JLabel(AUTHOR.getText(), JLabel.CENTER);
         author.setFont(new Font(Font.SERIF, Font.BOLD, FONT_12.getSize()));
         content.add(label, BorderLayout.CENTER);
         content.add(author, BorderLayout.SOUTH);
