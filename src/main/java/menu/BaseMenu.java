@@ -1,10 +1,8 @@
 package menu;
 
 import game.InitGame;
-import utils.DigitFilter;
 
 import javax.swing.*;
-import javax.swing.text.PlainDocument;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -13,23 +11,21 @@ import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
 public abstract class BaseMenu {
 
-    protected static JLabel setLabel(String text) {
+    protected static JLabel getLabel(String text) {
         JLabel label = new JLabel(text);
         label.setFont(new Font(Font.SERIF, Font.BOLD, FONT_20.getSize()));
         return label;
     }
 
-    protected static JTextField getInputInteger(String placeHolder, int size) {
-        JTextField field = new JTextField(placeHolder, size);
-        PlainDocument doc = (PlainDocument) field.getDocument();
-        doc.setDocumentFilter(new DigitFilter());
-        return field;
+    protected static JComboBox<String> getComboBox(String[] items, int width, int height, int fontSize, Color textColor, int maxRow, String selected) {
+        JComboBox<String> sizesList = new JComboBox<>(items);
+        sizesList.setMaximumRowCount(maxRow);
+        sizesList.setForeground(textColor);
+        sizesList.setFont(new Font(Font.SERIF, Font.BOLD, fontSize));
+        sizesList.setPreferredSize (new Dimension(width,height));
+        sizesList.setSelectedItem(selected);
+        return sizesList;
     }
-
-    protected static int getInnerInput(JTextField field) {
-        return Integer.parseInt(field.getText());
-    }
-
     protected static void setAttachmentsToDialog(JDialog dialog, JPanel panel, InitGame obj, int size) {
         dialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         dialog.add(panel);

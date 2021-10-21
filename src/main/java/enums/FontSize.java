@@ -2,8 +2,9 @@ package enums;
 
 public enum FontSize {
 
-    FONT_20(20),
-    FONT_12(12);
+    FONT_12(12),
+    FONT_16(16),
+    FONT_20(20);
 
     private final int size;
 

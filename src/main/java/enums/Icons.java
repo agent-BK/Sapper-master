@@ -1,10 +1,11 @@
 package enums;
 
-import java.awt.*;
+import java.awt.Image;
 
 import static utils.FileUtils.getImage;
 
 public enum Icons {
+
     ZERO("zero"),
     NUM1("num1"),
     NUM2("num2"),

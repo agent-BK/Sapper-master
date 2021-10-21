@@ -5,9 +5,10 @@ import game.InitGame;
 import javax.swing.*;
 
 import static enums.TextMenu.*;
-import static menu.ResizeField.initSizeField;
+import static menu.LevelMenu.initLevelMenu;
+import static menu.ResizeFieldMenu.initSizeField;
 
-public class Menu {
+public class MainMenu {
 
     public static void initMenu(InitGame obj) {
         JMenuBar menuBar = new JMenuBar();
@@ -15,7 +16,6 @@ public class Menu {
 
         JMenu gameMenu = new JMenu(SETTINGS.getText());
         JMenu helpMenu = new JMenu(HELP.getText());
-
         menuBar.add(gameMenu);
         menuBar.add(helpMenu);
 
@@ -35,17 +35,26 @@ public class Menu {
         helpMenu.addSeparator();
         helpMenu.add(aboutGame);
 
-        exitGame.addActionListener(arg0 -> {
-            obj.setVisible(false);
-            obj.dispose();
-        });
+        setExitGame(exitGame, obj);
+        setNewGame(newGame, obj);
 
-        newGame.addActionListener(arg0 -> {
+        sizeField.addActionListener(arg0 -> initSizeField(obj, FIELD_SIZE.getText(), FIELD_SIZE.getText()));
+        levelGame.addActionListener(arg0 -> initLevelMenu(obj, LEVEL.getText(), LEVEL.getText()));
+
+    }
+
+    private static void setExitGame(JMenuItem menuItem, InitGame obj) {
+        menuItem.addActionListener(arg0 -> {
+            obj.setVisible(false);
+            System.exit(0);
+        });
+    }
+
+    private static void setNewGame(JMenuItem menuItem, InitGame obj) {
+        menuItem.addActionListener(arg0 -> {
             obj.gameStart();
             obj.panelRepaint();
         });
-
-        sizeField.addActionListener(arg0 -> initSizeField(obj, FIELD_SIZE.getText(), FIELD_SIZE.getText()));
     }
 
 }

@@ -1,17 +1,20 @@
 package enums;
 
-public enum Labels {
+public enum Label {
 
+    VERSION("1.1"),
+    YEAR("2021"),
     REPLAY_GAME("Сыграть еще раз"),
     RESIZE_FIELD("Изменить размер поля"),
-    AUTHOR("Author: Andrey Voitovich, 2021 version: 1.0"),
+    SET_LEVEL("Изменить уровень"),
+    AUTHOR("Author: Andrey Voitovich, %s version: %s"),
     TITLE("Сапер"),
     LOSE("Вы проиграли!"),
     WIN("Вы победили!");
 
     private final String text;
 
-    Labels(String text){
+    Label(String text){
         this.text = text;
     }
 

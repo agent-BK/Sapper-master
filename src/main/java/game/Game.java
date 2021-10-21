@@ -15,15 +15,17 @@ public class Game {
     int countMine;
     int countCell;
     int countFlag;
+    int level;
     boolean stopGame;
     boolean gameStatus;
     GameObject[][] gamePanel;
 
-    public Game(int ROWS, int COLS) {
+    public Game(int ROWS, int COLS, int level) {
         this.ROWS = ROWS;
         this.COLS = COLS;
         this.countMine = 0;
         this.countFlag = 0;
+        this.level = level;
         this.gamePanel = new GameObject[ROWS][COLS];
         this.countCell = ROWS * COLS;
         this.stopGame = false;
@@ -37,7 +39,7 @@ public class Game {
         boolean mine_status;
         for (int x = 0; x < ROWS; x++) {
             for (int y = 0; y < COLS; y++) {
-                mine_status = getRandomNumber(10) == 1;
+                mine_status = getRandomNumber(level) == 1;
                 gamePanel[x][y] = new GameObject(x, y, mine_status);
                 if (mine_status) countMine++;
             }

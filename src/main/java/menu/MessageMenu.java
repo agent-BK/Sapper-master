@@ -5,10 +5,10 @@ import game.InitGame;
 import javax.swing.*;
 import java.util.ArrayList;
 
-import static enums.Labels.REPLAY_GAME;
+import static enums.Label.REPLAY_GAME;
 import static enums.Size.SIZE_180;
 
-public class Message extends BaseMenu {
+public class MessageMenu extends BaseMenu {
 
     private static JButton getBtnNewGame(JDialog dialog, InitGame obj) {
         JButton btn = new JButton(REPLAY_GAME.getText());
@@ -24,7 +24,7 @@ public class Message extends BaseMenu {
         ArrayList<Object> elements = new ArrayList<>();
         JDialog dialog = new JDialog(obj);
         JPanel panel = new JPanel();
-        elements.add(setLabel(text));
+        elements.add(getLabel(text));
         elements.add(getBtnNewGame(dialog, obj));
         setElementsMenu(panel, elements);
         setAttachmentsToDialog(dialog, panel, obj, SIZE_180.getSize());
